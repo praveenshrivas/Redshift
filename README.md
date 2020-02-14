@@ -64,11 +64,18 @@ Use the below command to generate random data
 - ls -l
 - vi datagen.sh (you can see the data Generation script here)
 - chmod +x datagen.sh
-- nohup ./datagen.sh & (this will run the command in backgroud)
+- nohup ./datagen.sh & (this will run the command in backgrouda and generate random data)
 - ps -ef|grep dsdgen (you can see if the process is running or not)
-- cd $HOME/tpcds (you can see the files here)
+
+It will take around 2 hours to generate the random data. 
+
+
+- cd $HOME/tpcds (you can see the files here after two hours)
 - cd $HOME
 - cd hands-on-with-redshift/
 - vi copy_files.sh (replace the bucket name with your bucket)
-- 
+- chmod +x copy_files.sh
+- nohup ./copy_files.sh & (it will push the files from EC2 to the S3 bucket)
+
+It will take around 30 minutes. 
 
