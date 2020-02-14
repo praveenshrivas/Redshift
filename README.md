@@ -34,9 +34,41 @@
 - Choose Amazon linux with t2.micro Instance type
 - Associate the role which we have created for s3
 - Root volume - keep it default 
+- create Security Group - Choose port 22 for SSH
 - Tag (Key - Name & Value - EC2-SQL-Client)
+- Login to putty and install SQL Client and git 
 
+Use the command 
+- 	yum update 
+- 	sudo yum install postgresql git 
 
 
 ** Provision EC2 for data Generation**
+- Choose Amazon linux with d2.xlarge Instance type
+- Associate the role which we have created for s3
+- Root volume - 200 GB
+- create Security Group - Choose port 22 for SSH
+- Tag (Key - Name & Value - EC2-Data-Generator)
+
+Use the below command to generate random data 
+
+- sudo yum install gcc make flex bison byacc git
+- git clone https://github.com/gregrahn/tpcds-kit.git
+- cd tpcds-kit/tools
+- make OS=LINUX
+- cd $HOME
+- git clone https://github.com/sko71/hands-on-with-redshift.git
+- mkdir tpcds
+- ls -l
+- cd hands-on-with-redshift/
+- ls -l
+- vi datagen.sh (you can see the data Generation script here)
+- chmod +x datagen.sh
+- nohup ./datagen.sh & (this will run the command in backgroud)
+- ps -ef|grep dsdgen (you can see if the process is running or not)
+- cd $HOME/tpcds (you can see the files here)
+- cd $HOME
+- cd hands-on-with-redshift/
+- vi copy_files.sh (replace the bucket name with your bucket)
+- 
 
